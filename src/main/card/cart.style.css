@@ -1,0 +1,61 @@
+/* src/components/Card.css */
+.card {
+    border: 1px solid #ccc;
+    /* Border for the card */
+    border-radius: 8px;
+    /* Rounded corners */
+    overflow: hidden;
+    /* Prevent overflow */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow */
+    transition: transform 0.3s;
+    /* Animation on hover */
+    cursor: pointer;
+    /* Pointer cursor */
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    /* Lift effect on hover */
+}
+
+.card-image {
+    width: 100%;
+    height: auto;
+}
+
+.card-content {
+    padding: 15px;
+}
+
+.card-title {
+    margin: 0 0 10px;
+    font-size: 1.5em;
+}
+
+.card-description {
+    color: #555;
+}
+
+.home {
+    padding: 20px;
+   
+    background-image: url('https://images.unsplash.com/photo-1584291527908-033f4d6542c8?q=80&w=1925&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-size: cover; 
+    background-position: center; 
+    height: 100vh; /* Full height of the viewport */
+    display: flex; /* Optional: Flexbox to center content */
+    justify-content: center; /* Optional: Center horizontally */
+    align-items: center; /* Optional: Center vertically */
+    color: white; /* Optional: Change text color for visibility */
+    flex-direction: column;
+}
+
+.card-container {
+    display: flex;
+    /* Flexbox layout */
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 100%;
+
+}

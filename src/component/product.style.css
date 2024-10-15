@@ -1,0 +1,115 @@
+/* src/components/ProductSection.css */
+.product-section {
+    padding: 40px 20px; /* Padding for the section */
+    background-color: #f8f9fa; /* Light background color */
+    text-align: center; /* Center text */
+  }
+  
+  .product-container {
+    display: flex; /* Flexbox layout */
+    justify-content: space-around; /* Space between cards */
+    flex-wrap: wrap; /* Wrap cards to new lines on small screens */
+  }
+  
+  .product-card {
+    background: white; /* Card background */
+    border: 1px solid #ccc; /* Card border */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    margin: 15px; /* Margin around cards */
+    padding: 20px; /* Padding inside cards */
+    width: 300px; /* Fixed width */
+  }
+  
+  .product-image {
+    width: 100%; /* Full width for images */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 4px; /* Rounded corners for images */
+  }
+  
+  .product-title {
+    margin: 15px 0 10px; /* Margin for title */
+    font-size: 1.5em; /* Title font size */
+  }
+  
+  .product-description {
+    color: #555; /* Grey color for description */
+  }
+  
+/*----------solutions------*/
+.solutions-container {
+    padding: 40px;
+    background-color: #f9f9f9;
+    /* Light background */
+    text-align: center;
+    /* Center text */
+}
+
+.solutions-grid {
+    display: grid;
+    /* Use grid for layout */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    /* Responsive columns */
+    gap: 20px;
+    /* Space between cards */
+}
+
+.solution-card {
+    background-color: #fff;
+    /* Card background */
+    border-radius: 8px;
+    /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* Shadow for depth */
+    padding: 20px;
+    /* Padding inside cards */
+    transition: transform 0.2s;
+    /* Smooth transition */
+}
+
+.solution-card:hover {
+    transform: translateY(-5px);
+    /* Slight lift on hover */
+}
+
+.solution-card img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+/*----------resource--------*/
+.resources-section {
+    height: 100vh; /* Full height of the viewport */
+    display: flex; /* Flexbox for centering content */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    flex-direction: column; /* Stack items vertically */
+    background-image: url('https://source.unsplash.com/featured/?resources'); /* Background image */
+    background-size: cover; /* Cover the whole section */
+    background-position: center; /* Center the image */
+    text-align: center; /* Center text */
+    padding: 20px; /* Add some padding */
+  }
+  
+  .resources-links {
+    margin-top: 20px; /* Space above links */
+  }
+  
+  .resource-link {
+    display: inline-block; /* Make links block for padding */
+    margin: 10px; /* Space between links */
+    padding: 10px 20px; /* Button-like padding */
+    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+    color: white; /* Link text color */
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none; /* Remove underline */
+    transition: background-color 0.3s; /* Smooth transition */
+  }
+  
+  .resource-link:hover {
+    background-color: rgba(255, 255, 255, 0.5); /* Change background on hover */
+  }
+  

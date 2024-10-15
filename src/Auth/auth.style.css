@@ -1,0 +1,163 @@
+/* src/components/Login.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.login-container {
+  display: flex;
+  height: 100vh;
+  /* Full height */
+}
+
+.image-side {
+  flex: 1;
+  /* Take up 50% of the screen */
+  background-size: cover;
+  /* Cover the whole section */
+}
+
+.form-side {
+  flex: 1;
+  /* Take up 50% of the screen */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f2f2f2;
+  /* Light background color */
+}
+
+form {
+  max-width: 400px;
+  /* Max width for form */
+  width: 100%;
+  /* Full width */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  /* Shadow effect */
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/*--------signUp*----------*/
+
+
+.signup-container {
+  display: flex;
+  height: 100vh;
+  /* Full height */
+}
+
+.image-side {
+  flex: 1;
+  /* Take up 50% of the screen */
+  background-size: cover;
+  /* Cover the whole section */
+}
+
+.form-side {
+  flex: 1;
+  /* Take up 50% of the screen */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f2f2f2;
+  /* Light background color */
+}
+
+form {
+  max-width: 400px;
+  /* Max width for form */
+  width: 100%;
+  /* Full width */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  /* Shadow effect */
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/*-------Auth----------*/
+
+.auth-container {
+  display: flex; /* Aligns children side by side */
+  height: 100vh; /* Full viewport height */
+  overflow: hidden; /* Prevents overflow */
+}
+
+.image-side {
+  flex: 1; /* Takes up half of the width */
+}
+
+.image-side img {
+  width: 100%; /* Full width of the container */
+  height: 100%; /* Full height of the container */
+  object-fit: cover; /* Maintains aspect ratio and covers */
+}
+
+.form-side {
+  flex: 1; /* Takes the other half of the width */
+  display: flex;
+  flex-direction: column; /* Stacks elements vertically */
+  justify-content: center; /* Centers form vertically */
+  padding: 20px; /* Adds padding */
+}
