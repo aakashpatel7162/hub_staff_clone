@@ -41,7 +41,7 @@ export default function Header() {
   return (
     <div className="header">
       <div className="left-side">
-        <div className="logo">
+        <div className="logo" onClick={ navigate(paths.home)}>
           <img src="https://tse4.mm.bing.net/th?id=OIP.o0PTybSwsfVZU_5J0H-2TAHaBl&pid=Api&P=0&h=180" alt="Logo" />
         </div>
         <nav className="nav">
