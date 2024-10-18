@@ -1,7 +1,6 @@
 import React from 'react';
 import './product.style.css'; 
 import data from '../constant/data'
-
 export default function ProductSection() {
   return (
     <div className="product-section">
