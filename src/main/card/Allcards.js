@@ -8,7 +8,6 @@ export default function Allcards() {
     <div className="home">
       <h1>Welcome to Our Homepage</h1>
       <div className="card-container">
-       
       </div>
     </div>
   );
