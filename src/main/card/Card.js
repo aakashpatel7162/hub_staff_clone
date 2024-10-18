@@ -1,5 +1,5 @@
 import React from 'react';
-import './cart.style.css'; // Import CSS for styling
+import './cart.style.css'; 
 
 export default function Card({ title, description, imageUrl }) {
   return (
