@@ -1,0 +1,76 @@
+.user_tablemain {
+    display: flex;
+    width: 100%; 
+    padding: 20px; 
+    box-sizing: border-box; 
+  }
+  
+  .stopwatch-container {
+    flex: 1;
+    margin-right: 20px; 
+  }
+  
+  .activity-table-container {
+    flex: 2; 
+    max-height: 80vh; 
+    overflow-y: auto; 
+  }
+  
+  .activity-table-container table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .activity-table-container th,
+  .activity-table-container td {
+    border: 1px solid #ddd; 
+    padding: 8px; 
+  }
+  
+  .activity-table-container th {
+    background-color: #f2f2f2; 
+  }
+  
+
+  /*-------stopwatch----*/
+  .stopwatch {
+    text-align: center;
+    margin-top: 20px;
+    background-color: #f8f9fa; 
+    border: 2px solid #007bff; 
+    border-radius: 10px; 
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+    width: 300px; 
+    margin: 0 auto; 
+  }
+  
+  h2 {
+    color: #007bff; 
+    margin-bottom: 10px; 
+  }
+  
+  .time {
+    font-size: 3rem; 
+    font-weight: bold;
+    margin: 10px 0; 
+    color: #333; 
+  }
+  
+  .reset-button {
+    margin-top: 15px; 
+    padding: 10px 20px; 
+    border: none;
+    background-color: #28a745; 
+    color: white; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    transition: background-color 0.3s; 
+  }
+  
+  .reset-button:hover {
+    background-color: #218838; 
+  }
+  
+  
+  

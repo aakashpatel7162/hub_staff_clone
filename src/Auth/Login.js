@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import "./auth.style.css";
 import data from "../constant/data";
-import { useState } from "react";
-export default function Login({setUserWantToSignup}) {
+import { useNavigate } from "react-router-dom";
+import { paths } from "../routes/paths";
+
+export default function Login({ setUserWantToSignup }) {
   const { emailRegex, passRegex } = data;
   const [userLoginData, setUserLoginData] = useState({
     email: "",
@@ -17,49 +19,44 @@ export default function Login({setUserWantToSignup}) {
   const [showForgotPassword, setShowForgotPassword] = useState(false);
   const [forgotPasswordEmail, setForgotPasswordEmail] = useState("");
   const [forgotPasswordError, setForgotPasswordError] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
 
-  const handleForgotPasswordChange = (e) => {
-    setForgotPasswordEmail(e.target.value);
-    setForgotPasswordError("");
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setUserLoginData({ ...userLoginData, [name]: value });
+    setErrors((prevErrors) => ({ ...prevErrors, [name]: "" }));
   };
 
   const handleSubmit = (e) => {
-    console.log(userLoginData, "userLoginData");
     e.preventDefault();
-    console.log("");
-
-    const { email, loginPass } = data.errorMessages;
-
     const newErrors = {};
 
     if (!emailRegex.test(userLoginData.email)) {
-      newErrors.emailError = email;
+      newErrors.emailError = "Invalid email format";
     }
     if (!passRegex.test(userLoginData.password)) {
-      newErrors.passwordError = loginPass;
+      newErrors.passwordError = "Invalid password format";
     }
 
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
       return;
     }
-    console.log(newErrors, "newErrors");
-    const storedUserData = localStorage.getItem("userData");
 
+    const storedUserData = localStorage.getItem("userData");
     if (storedUserData) {
       const userData = JSON.parse(storedUserData);
-      const userEmail = userData.email;
-      const userPassword = userData.password;
-
-      if (userEmail !== userLoginData.email) {
+      if (userData.email !== userLoginData.email) {
         setErrors({ emailError: "You have not signed up with this email" });
         return;
       }
-      if (userPassword !== userLoginData.password) {
+      if (userData.password !== userLoginData.password) {
         setErrors({ passwordError: "Password is not correct" });
         return;
       }
       alert("You are logged in successfully");
+      navigate('/home');
     } else {
       alert("You are not signed up");
     }
@@ -67,30 +64,29 @@ export default function Login({setUserWantToSignup}) {
 
   const handleForgotPasswordSubmit = (e) => {
     e.preventDefault();
-    if (emailRegex.test(forgotPasswordEmail)) {
-      alert(`Verification link sent to ${forgotPasswordEmail}`);
-      setShowForgotPassword(false);
-      setForgotPasswordEmail("");
-    } else {
-      setForgotPasswordError("Please enter a valid email.");
+    if (!emailRegex.test(forgotPasswordEmail)) {
+      setForgotPasswordError("Invalid email format");
+      return;
     }
+    alert(`Verification link sent to ${forgotPasswordEmail}`);
+    setShowForgotPassword(false); // Close the forgot password form
+    setForgotPasswordEmail(""); // Clear the input
+  };
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
   };
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setUserLoginData({ ...userLoginData, [name]: value });
-    setErrors((prevErrors) => ({
-      ...prevErrors,
-      [name]: "",
-    }));
+  const handleNavigate = () => {
+    navigate(paths.signup);
+    setUserWantToSignup(true);
   };
+
   return (
-      <div className="signup-container">
-
-        <div className="form-side">
+    <div className="signup-container">
+      <div className="form-side">
+        {!showForgotPassword ? (
           <form onSubmit={handleSubmit}>
             <h2>Login</h2>
-
             <div className="form-group">
               <label>WORK EMAIL*</label>
               <input
@@ -100,59 +96,60 @@ export default function Login({setUserWantToSignup}) {
                 onChange={handleChange}
                 required
               />
-              {errors.emailError && (
-                <p className="error">{errors.emailError}</p>
-              )}
+              {errors.emailError && <p className="error">{errors.emailError}</p>}
             </div>
             <div className="form-group">
-              <label>PASSWORD*</label>
+        <label>Password:</label>
+        <div style={{ position: 'relative' }}>
+          <input
+            type={showPassword ? 'text' : 'password'}
+            name="password"
+            value={userLoginData.password}
+            onChange={handleChange}
+            required
+          />
+          <span
+            onClick={togglePasswordVisibility}
+            style={{
+              position: 'absolute',
+              right: '10px',
+              cursor: 'pointer',
+              userSelect: 'none',
+            }}
+          >
+            {showPassword ? 'Hide' : 'Show'}
+          </span>
+        </div>
+        {errors.passwordError && <p className="error">{errors.passwordError}</p>}
+      </div>
+            <span onClick={() => setShowForgotPassword(true)}>Forget Password</span>
+            <button type="submit" style={{ marginTop: "20px" }}>Login</button>
+
+            <p className="account-message">
+              Don't have an account?{" "}
+              <span onClick={handleNavigate} className="link">sign up here</span>
+            </p>
+          </form>
+        ) : (
+          <form onSubmit={handleForgotPasswordSubmit}>
+            <h2>Forgot Password</h2>
+            <div className="form-group">
+              <label>Email:</label>
               <input
-                type="password"
-                name="password"
-                value={userLoginData.password}
-                onChange={handleChange}
+                type="email"
+                value={forgotPasswordEmail}
+                onChange={(e) => setForgotPasswordEmail(e.target.value)}
                 required
               />
-              {errors.passwordError && (
-                <p className="error">{errors.passwordError}</p>
-              )}
+              {forgotPasswordError && <p className="error">{forgotPasswordError}</p>}
             </div>
-            <span>Forget Password</span>
-            <button type="submit" onClick={()=>setUserWantToSignup(true)} >Login</button>
-
-            <span>
-              Don't have an account?{" "}
-              <span onClick={() => setShowForgotPassword(true)}>
-                Get started
-              </span>
-            </span>
+            <button type="submit">Send Verification Link</button>
+            <button type="button" onClick={() => setShowForgotPassword(false)}>
+              Cancel
+            </button>
           </form>
-
-          {showForgotPassword && (
-            <form onSubmit={handleForgotPasswordSubmit}>
-              <h2>Forgot Password</h2>
-              <div className="form-group">
-                <label>Email:</label>
-                <input
-                  type="email"
-                  value={forgotPasswordEmail}
-                  onChange={handleForgotPasswordChange}
-                  required
-                />
-                {forgotPasswordError && (
-                  <p className="error">{forgotPasswordError}</p>
-                )}
-              </div>
-              <button type="submit">Send Verification Link</button>
-              <button
-                type="button"
-                onClick={() => setShowForgotPassword(false)}
-              >
-                Cancel
-              </button>
-            </form>
-          )}
-        </div>
+        )}
       </div>
+    </div>
   );
 }
