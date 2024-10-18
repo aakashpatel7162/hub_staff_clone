@@ -38,11 +38,17 @@ export default function Header() {
     localStorage.clear()
     navigate(paths.login)
   }
+  const handleUsrTOhome=()=>{
+    navigate(paths.home)
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }, 100);
+  }
   return (
     <div className="header">
       <div className="left-side">
-        <div className="logo" onClick={ navigate(paths.home)}>
-          <img src="https://tse4.mm.bing.net/th?id=OIP.o0PTybSwsfVZU_5J0H-2TAHaBl&pid=Api&P=0&h=180" alt="Logo" />
+        <div className="logo"  >
+          <img src="https://tse4.mm.bing.net/th?id=OIP.o0PTybSwsfVZU_5J0H-2TAHaBl&pid=Api&P=0&h=180" alt="Logo" onClick={handleUsrTOhome} />
         </div>
         <nav className="nav">
           <ul>
