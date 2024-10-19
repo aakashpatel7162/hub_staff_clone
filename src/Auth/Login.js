@@ -56,6 +56,7 @@ export default function Login({ setUserWantToSignup }) {
         return;
       }
       alert("You are logged in successfully");
+      
       navigate('/home');
     } else {
       alert("You are not signed up");
@@ -69,8 +70,8 @@ export default function Login({ setUserWantToSignup }) {
       return;
     }
     alert(`Verification link sent to ${forgotPasswordEmail}`);
-    setShowForgotPassword(false); // Close the forgot password form
-    setForgotPasswordEmail(""); // Clear the input
+    setShowForgotPassword(false); 
+    setForgotPasswordEmail(""); 
   };
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);

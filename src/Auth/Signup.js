@@ -61,6 +61,13 @@ const navigate=useNavigate()
       phone: formData.phone,
     }));
     alert("You have signed up successfully!");
+    const storedUserData = localStorage.getItem('userData');
+
+  if (storedUserData) {
+    const userData = JSON.parse(storedUserData);
+    userData.loginTime = Date.now(); 
+    localStorage.setItem('userData', JSON.stringify(userData));
+  }
 
     setUserWantToSignup(false); 
   };

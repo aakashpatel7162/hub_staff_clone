@@ -5,8 +5,20 @@ import ProductSection from '../component/ProductSection';
 import Solutions from '../component/Solutions';
 import Resources from '../component/Resources';
 import Contactus from '../component/Contactus'
+import { useState } from 'react';
 const Home = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [lastCaptureTime, setLastCaptureTime] = useState(null);
+
   useEffect(() => {
+    const userData = localStorage.getItem('userData'); 
+    if (userData) {
+      setIsLoggedIn(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!isLoggedIn) return;
     let userActivities = [];
 
     const handleClick = (event) => {
@@ -33,33 +45,39 @@ const Home = () => {
       const storedActivities = JSON.parse(localStorage.getItem('userActivities')) || [];
       const updatedActivities = [...storedActivities, ...userActivities];
 
-      if (updatedActivities.length >8) {
+      if (updatedActivities.length > 8) {
         updatedActivities.splice(0, updatedActivities.length - 8);
       }
 
       localStorage.setItem('userActivities', JSON.stringify(updatedActivities));
-      userActivities = []; 
+      userActivities = [];
     };
 
-    const initialCapture = async () => {
-      await takeSnapshot(); 
-      document.addEventListener('click', handleClick); 
-
+    const handleInitialCapture = async () => {
+      const now = Date.now();
+      await takeSnapshot();
       storeActivities();
+      setLastCaptureTime(now); 
     };
 
-    initialCapture(); 
+    handleInitialCapture();
 
     const intervalId = setInterval(async () => {
-      await takeSnapshot(); 
-      storeActivities(); 
-    }, 600000); 
+      const now = Date.now();
+      if (!lastCaptureTime || now - lastCaptureTime >= 600000) {
+        await takeSnapshot();
+        storeActivities();
+        setLastCaptureTime(now); 
+      }
+    }, 600000);
+
+    document.addEventListener('click', handleClick); 
 
     return () => {
       document.removeEventListener('click', handleClick);
       clearInterval(intervalId);
     };
-  }, []);
+  }, [isLoggedIn]); 
 
   return (
     <div>
