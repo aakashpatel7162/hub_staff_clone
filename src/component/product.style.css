@@ -118,11 +118,11 @@ h2 {
     transform: translateY(-50%); 
   }
   textarea {
-    width: 100%; /* Full width */
-    padding: 10px; /* Padding for comfort */
-    border: 1px solid #ccc; /* Border styling */
-    border-radius: 4px; /* Rounded corners */
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    width: 100%; 
+    padding: 10px; 
+    border: 1px solid #ccc;
+    border-radius: 4px; 
+    box-sizing: border-box;
 }
   
   
