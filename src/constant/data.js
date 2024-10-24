@@ -49,19 +49,19 @@ products: [
       id: 1,
       title: 'Time Tracking',
       description: 'Effortlessly track time and productivity with our intuitive time tracking tool. Monitor your hours, generate reports, and improve efficiency.',
-      imageUrl: 'https://via.placeholder.com/300', 
+      imageUrl: 'https://media.istockphoto.com/id/623525564/photo/checking-your-activity-status.jpg?s=612x612&w=0&k=20&c=LKfjOM_4WrQF_qyeJ6KTwGxAkJ1o7CUVPuMAdhAn6XQ=', 
     },
     {
       id: 2,
       title: 'Task Management',
       description: 'Organize your tasks and projects seamlessly. Prioritize your workload and collaborate with your team effectively.',
-      imageUrl: 'https://via.placeholder.com/300',
+      imageUrl: 'https://media.istockphoto.com/id/1371325578/photo/kanban-project-management-software-on-laptop.jpg?s=612x612&w=0&k=20&c=-YK8Bj2KS3Px74_Rjudm1_Jhq-n8vqhLDHuontnhojs=',
     },
     {
       id: 3,
       title: 'Team Collaboration',
       description: 'Enhance team communication and collaboration with our platform. Share files, discuss ideas, and work together in real-time.',
-      imageUrl: 'https://via.placeholder.com/300',
+      imageUrl: 'https://media.istockphoto.com/id/1373240838/photo/positive-team-motivation.webp?a=1&b=1&s=612x612&w=0&k=20&c=ZN5mLRBH0Hd7FEj5aoyFKGm9J1axlpkkqagUDQuwfow=',
     },
   ],
 
