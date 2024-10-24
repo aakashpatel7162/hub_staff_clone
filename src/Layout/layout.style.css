@@ -20,72 +20,95 @@ body {
 
 
 .header {
-    display: flex;
-    justify-content: space-evenly; 
-    align-items: center;
-    padding: 20px;
-    background-color: #f8f8f8;
-    position: sticky;
-    top: 0; 
-    z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
-  }
-  
-  .left-side, .right-side {
-    display: flex; 
-    align-items: center;
-    gap: 20px; 
-  }
-  
-  .logo img {
-    height: 50px;
-  }
-  
-  .nav ul {
-    list-style: none; 
-    display: flex; 
-    margin: 0;
-    padding: 0; 
-  }
-  
-  .nav li {
-    margin-right: 20px;
-  }
-  
-  .text-items {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-  }
-  
-  .buttons {
-    display: flex; 
-    gap: 10px; 
-  }
-  
-  .demo-button, .signin-button {
-    padding: 10px 15px; 
-    border: none; 
-    border-radius: 5px; 
-    cursor: pointer;
-  }
-  
-  .demo-button {
-    background-color: #007bff; 
-    color: white;
-    white-space: nowrap;
-    transition: background-color 0.3s; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 20px;
+  background-color: #f8f9fa;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.left-side {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  width: 120px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+  transform: scale(1.05);
+}
+
+.nav ul {
+  display: flex;
+  list-style: none;
+  margin-left: 30px;
+}
+
+.nav ul li {
+  margin: 0 15px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  cursor: pointer;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+  border-bottom: 2px solid transparent;
+}
+
+.nav ul li:hover {
+  color: #007bff;
+  border-bottom: 2px solid #007bff;
+}
+
+.right-side {
+  display: flex;
+  align-items: center;
+}
+
+.text-items {
+  display: flex;
+  gap: 15px;
+}
+
+.demo-button {
+  padding: 8px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  font-size: 14px;
 }
 
 .demo-button:hover {
-    background-color: #0056b3; 
+  background-color: #0056b3;
+  transform: translateY(-2px);
 }
-  
-  .signin-button {
-    background-color: #28a745; 
-    color: white;
+
+.demo-button:active {
+  transform: translateY(0);
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
   }
-  
+
+  .nav ul {
+    margin-top: 10px;
+  }
+
+  .text-items {
+    margin-top: 10px;
+  }
+}
+
 
 /*-------Footer---------*/
 .footer {

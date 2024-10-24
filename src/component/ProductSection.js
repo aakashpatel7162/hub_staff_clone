@@ -1,10 +1,11 @@
 import React from 'react';
-import './product.style.css'; 
-import data from '../constant/data'
+import './product.style.css';
+import data from '../constant/data';
+
 export default function ProductSection() {
   return (
     <div className="product-section">
-      <h2>Our Products</h2>
+      <h2 className="section-title">Our Products</h2>
       <div className="product-container">
         {data.products.map((product) => (
           <div key={product.id} className="product-card">

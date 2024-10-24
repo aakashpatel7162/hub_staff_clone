@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './product.style.css'; 
+import './product.style.css'; // Ensure this matches your new style file
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -43,7 +43,7 @@ const ContactForm = () => {
   return (
     <div className="contact-form">
       <h2>Contact Us</h2>
-      {submitted && <p>Thank you for your message!</p>}
+      {submitted && <p style={{ textAlign: 'center', color: '#28a745' }}>Thank you for your message!</p>}
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label>Name:</label>
@@ -69,7 +69,7 @@ const ContactForm = () => {
         </div>
         <div className="form-group">
           <label>Message:</label>
-          <input
+          <textarea
             name="message"
             value={formData.message}
             onChange={handleChange}

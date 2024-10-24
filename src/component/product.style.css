@@ -1,40 +1,67 @@
 .product-section {
-    padding: 40px 20px; 
-    background-color: #f8f9fa;
-    text-align: center; 
-  }
-  
+  padding: 40px;
+  background-color: #e8f1f2;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1a3a4f;
+  margin-bottom: 25px;
+  align-items: center;
+}
+
+.product-container {
+  display: flex; /* Display products in a row */
+  flex-wrap: nowrap; /* No wrapping to keep items in a single row */
+  gap: 20px; /* Space between product cards */
+  overflow-x: auto; /* Enable horizontal scrolling if needed */
+}
+
+.product-card {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  min-width: 180px; /* Minimum width for each card */
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.product-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.product-title {
+  font-size: 1.2rem;
+  color: #34495e;
+  margin-bottom: 8px;
+}
+
+.product-description {
+  font-size: 1rem;
+  color: #7f8c8d;
+}
+
+@media (max-width: 768px) {
   .product-container {
-    display: flex; 
-    justify-content: space-around;
-    flex-wrap: wrap;
+    overflow-x: auto; /* Allow scrolling on smaller screens */
   }
-  
-  .product-card {
-    background: white; 
-    border: 1px solid #ccc; 
-    border-radius: 8px; 
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
-    margin: 15px; 
-    padding: 20px; 
-    width: 300px; 
+
+  .section-title {
+    font-size: 2rem;
   }
-  
-  .product-image {
-    width: 100%; 
-    height: auto; 
-    border-radius: 4px; 
-  }
-  
-  .product-title {
-    margin: 15px 0 10px; 
-    font-size: 1.5em; 
-  }
-  
-  .product-description {
-    color: #555; 
-  }
-  
+}
+
+
 /*----------solutions------*/
 .solutions-container {
     padding: 40px;
@@ -73,56 +100,123 @@ h2 {
     margin-bottom: 20px;
 }
 /*----------resource--------*/
-.resources-section {
-    height: 100vh; 
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    flex-direction: column; 
-    background-image: url('https://source.unsplash.com/featured/?resources'); 
-    background-size: cover; 
-    background-position: center; 
-    text-align: center; 
-    padding: 20px; 
-  }
-  
-  .resources-links {
-    margin-top: 20px; 
-  }
-  
-  .resource-link {
-    display: inline-block; 
-    margin: 10px; 
-    padding: 10px 20px; 
-    background-color: rgba(255, 255, 255, 0.2); 
-    color: white; 
-    border-radius: 5px; 
-    text-decoration: none; 
-    transition: background-color 0.3s; 
-  }
-  
-  .resource-link:hover {
-    background-color: rgba(255, 255, 255, 0.5); 
-  }
+.solutions-container {
+  padding: 40px 20px;
+  background-color: #f0f4f8; /* Light background for contrast */
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: center; /* Center align title */
+}
+
+.solutions-title {
+  font-size: 2.5rem;
+  color: #333; /* Dark color for visibility */
+  margin-bottom: 20px; /* Space below title */
+}
+
+.solutions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive grid */
+  gap: 20px; /* Space between cards */
+}
+
+.solution-card {
+  background-color: #fff; /* White card background */
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s; /* Smooth hover effect */
+}
+
+.solution-card:hover {
+  transform: translateY(-5px); /* Slight lift effect on hover */
+}
+
+.solution-title {
+  font-size: 1.5rem;
+  color: #007bff; /* Primary color for titles */
+  margin-bottom: 10px; /* Space below title */
+}
+
+.solution-description {
+  font-size: 1rem;
+  color: #666; /* Softer color for description */
+}
 
   /*---------contactus-------*/
   .contact-form {
-    max-width: 400px; 
-    margin: auto; 
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-    position: relative; 
-    top: 50%; 
-    transform: translateY(-50%); 
+    max-width: 500px; /* Increased width for spacious feel */
+    margin: 60px auto; /* Centered with top margin */
+    padding: 30px; /* Generous padding */
+    border-radius: 10px;
+    background-color: #ffffff; /* White background for cleanliness */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    font-family: 'Arial', sans-serif; /* Clean font */
   }
-  textarea {
-    width: 100%; 
-    padding: 10px; 
-    border: 1px solid #ccc;
-    border-radius: 4px; 
-    box-sizing: border-box;
-}
   
+  .contact-form h2 {
+    font-size: 2rem; /* Large, prominent title */
+    margin-bottom: 20px; /* Space below title */
+    text-align: center; /* Center align */
+    color: #333; /* Dark text for contrast */
+  }
+  
+  .form-group {
+    margin-bottom: 20px; /* Space between groups */
+  }
+  
+  label {
+    display: block; /* Block for full width */
+    margin-bottom: 5px; /* Space below label */
+    font-weight: 600; /* Semi-bold */
+    color: #555; /* Dark gray for better readability */
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    width: 100%;
+    padding: 12px; /* Ample padding */
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 5px; /* Rounded corners */
+    box-sizing: border-box; /* Include padding in width */
+    transition: border-color 0.3s, box-shadow 0.3s; /* Smooth transitions */
+    font-size: 1rem; /* Standard font size */
+  }
+  
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  textarea:focus {
+    border-color: #007bff; /* Blue border on focus */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Subtle glow */
+    outline: none; /* Remove default outline */
+  }
+  
+  .error {
+    color: #d9534f; /* Red color for errors */
+    font-size: 0.9rem; /* Smaller font for error messages */
+    margin-top: 5px; /* Space above error */
+  }
+  
+  button {
+    width: 100%; /* Full-width button */
+    padding: 12px; /* Generous padding */
+    background-color: #28a745; /* Green button */
+    color: #ffffff; /* White text */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer on hover */
+    font-size: 1.2rem; /* Larger font for button */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transitions */
+  }
+  
+  button:hover {
+    background-color: #218838; /* Darker green on hover */
+    transform: translateY(-2px); /* Lift effect */
+  }
+  
+  textarea {
+    resize: none; /* Disable resizing */
+    height: 150px; /* Fixed height for textarea */
+  }
   
